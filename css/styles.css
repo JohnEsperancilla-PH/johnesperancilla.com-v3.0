@@ -85,10 +85,10 @@
 /* ------------------------------------------------------------------- 
  * ## fonts 
  * ------------------------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Roboto+Flex:opsz,wght@8..144,300;8..144,400;8..144,500;8..144,600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-	--font-1: "Roboto Flex", sans-serif;
+	--font-1: "Montserrat", sans-serif;
 	--font-2: "DM Serif Display", Serif;
 
   /* monospace
@@ -3190,8 +3190,8 @@ td:last-child {
  *
  * ------------------------------------------------------------------- */
 .s-header {
-	--header-height: 80px;
-	--logo-width   : 9.6rem;
+	--header-height: 100px;
+	--logo-width   : 15rem;
 	--box-shadow   : 0 1px 1px rgba(0, 0, 0, 0.02),
 		             0 2px 2px rgba(0, 0, 0, 0.02),
 		             0 4px 4px rgba(0, 0, 0, 0.02),
@@ -3201,11 +3201,11 @@ td:last-child {
 		             0 8px 8px rgba(0, 0, 0, 0.03),
 		              16px 16px rgba(0, 0, 0, 0.03);
 	z-index         : 100;
-	background-color: transparent;
+	background-color: var(--color-2-darkest);
 	height          : var(--header-height);
 	width           : 100%;
 	position        : absolute;
-	top             : var(--vspace-0_75);
+
 	left            : 0;
 }
 
@@ -3223,74 +3223,77 @@ td:last-child {
 /* --------------------------------------------------------------------
  * ## logo
  * -------------------------------------------------------------------- */
-.s-header__logo {
-	z-index    : 3;
-	line-height: 1;
-	transform  : translate(0.3rem, -0.2em);
+ .s-header__logo {
+    display        : flex;
+    flex           : 0.88 0 0%;
+    align-items    : center;
+    justify-content: center; /* Center content horizontally */
 }
 
 .s-header__logo a {
-	display: block;
-	margin : 0;
-	padding: 0;
-	outline: 0;
-	border : none;
+    display: block;
+    margin : 0;
+    padding: 0;
+    outline: 0;
+    border : none;
 }
 
 .s-header__logo img {
-	width         : var(--logo-width);
-	margin        : 0;
-	vertical-align: bottom;
+    width         : var(--logo-width);
+    margin        : 0;
+    vertical-align: bottom;
 }
 
 /* --------------------------------------------------------------------
  * ## main navigation
  * -------------------------------------------------------------------- */
 .s-header__nav {
-	margin-left    : var(--vspace-1);
-	display        : flex;
-	flex           : 1 1 0%;
-	align-items    : center;
-	justify-content: space-between;
+    display        : flex;
+    flex           : 0.89 0 0%;
+    align-items    : center;
+    justify-content: center; /* Center content horizontally */
+    position       : relative; /* Allow positioning of the contact button */
 }
 
 .s-header__menu-links {
-	list-style: none;
-	display   : inline-flex;
-	flex-flow : row nowrap;
-	margin    : 0 4rem 0 0;
-	padding   : 0;
+    list-style: none;
+    display   : inline-flex;
+    flex-flow : row nowrap;
+    margin    : 0 auto; /* Center the menu links within the flex container */
+    padding   : 0;
 }
 
 .s-header__menu-links li {
-	padding-left: 0;
+    padding-left: 0;
 }
 
 .s-header__menu-links a {
-	display            : block;
-	font-family        : var(--font-1);
-	font-weight        : 400;
-	font-size          : 1.6rem;
-	line-height        : var(--vspace-1);
-	color              : var(--color-2-lightest);
-	padding            : 0 1.2rem;
-	transition-property: color, background-color;
+    display            : block;
+    font-family        : var(--font-1);
+    font-weight        : 400;
+    font-size          : 2rem;
+    line-height        : var(--vspace-1);
+    color              : var(--color-2-lightest);
+    padding            : 0 1.2rem;
+    transition-property: color, background-color;
 }
 
 .s-header__menu-links a:focus,
 .s-header__menu-links a:hover {
-	color: var(--color-3);
+    color: var(--color-3);
 }
 
 .s-header__menu-links .current a {
-	color: var(--color-3);
+    color: var(--color-3);
 }
 
-/* header contact button
- */
+/* header contact button */
 .s-header__contact-btn {
-	margin: 0;
+    margin    : 0;
+    position  : absolute; /* Position absolutely within the parent container */
+    right     : 0; /* Align it to the right */
 }
+
 
 /* --------------------------------------------------------------------
  * ## mobile menu toggle
